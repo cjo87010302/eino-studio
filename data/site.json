@@ -1,0 +1,43 @@
+{
+  "site": {
+    "logo": "Eino",
+    "title": "Eino Studio - Photography & Design - Taipei",
+    "description": "A creative studio working at the intersection of commercial photography and graphic design. Based in Taipei.",
+    "og_title": "Eino Studio - Photography & Design",
+    "og_description": "Commercial photography, graphic design, and editorial art direction. Based in Taipei, working globally.",
+    "footer_copyright": "2025 Eino Studio - Taipei"
+  },
+  "hero": {
+    "tag": "Photography & Design Studio - Taipei",
+    "heading_line1": "Eino",
+    "heading_line2": "Studio",
+    "description": "A creative studio working at the intersection of commercial photography and graphic design - crafting precise, memorable visual stories.",
+    "cta": "View Works"
+  },
+  "about": {
+    "eyebrow": "About the Studio",
+    "heading": "The eye that\ndoes not miss\nanything.",
+    "body1": "A creative studio with over a decade of experience across commercial photography, graphic design, and editorial. Based in Taipei, working globally.",
+    "body2": "Every frame and layout built on the same philosophy - restraint in form, clarity in intention.",
+    "stat1_number": "10+",
+    "stat1_label": "Years",
+    "stat2_number": "500+",
+    "stat2_label": "Projects",
+    "stat3_number": "80+",
+    "stat3_label": "Clients"
+  },
+  "services": [
+    { "number": "01", "title": "Commercial Photography", "description": "Brand campaigns, product still life, editorial portraiture. Precision light control across every assignment.", "tags": "Photography - Direction" },
+    { "number": "02", "title": "Graphic Design", "description": "Brand identity, publication design, art direction. Visual systems that are rigorous, scalable, and intentional.", "tags": "Identity - Print - Digital" },
+    { "number": "03", "title": "Editorial & Art Direction", "description": "End-to-end creative direction for magazines, campaigns, and brand content.", "tags": "Editorial - Campaign" }
+  ],
+  "contact": {
+    "heading": "Let us make\nsomething.",
+    "email": "hello@eino.studio",
+    "socials": [
+      { "name": "Instagram", "handle": "@eino.studio", "url": "#" },
+      { "name": "Behance", "handle": "behance.net/eino", "url": "#" },
+      { "name": "LinkedIn", "handle": "linkedin.com/in/eino", "url": "#" }
+    ]
+  }
+}
