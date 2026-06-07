@@ -1,0 +1,132 @@
+{
+  "works": [
+    {
+      "title": "First Light",
+      "subtitle": "Bridal Ceremony Â· 2024",
+      "category": "photography",
+      "aspect": 0.72,
+      "description": "A quiet morning ceremony in natural light. Every gesture documented as it happened.",
+      "image": ""
+    },
+    {
+      "title": "Artisan No.5",
+      "subtitle": "Fragrance Campaign Â· 2024",
+      "category": "product",
+      "aspect": 1.52,
+      "description": "Precision lighting, zero props, total intention.",
+      "image": ""
+    },
+    {
+      "title": "Quiet Force",
+      "subtitle": "Corporate Portrait Â· 2023",
+      "category": "photography",
+      "aspect": 1.45,
+      "description": "Character-driven portraiture. Revealing presence rather than constructing it.",
+      "image": ""
+    },
+    {
+      "title": "Golden Hour",
+      "subtitle": "Wedding Editorial Â· 2024",
+      "category": "editorial",
+      "aspect": 0.65,
+      "description": "Late afternoon vows, backlit silhouettes â warmth as a visual language.",
+      "image": ""
+    },
+    {
+      "title": "Precision",
+      "subtitle": "Watch Campaign Â· 2023",
+      "category": "product",
+      "aspect": 1.0,
+      "description": "A composition as exact as the movement inside the case.",
+      "image": ""
+    },
+    {
+      "title": "Autumn Veil",
+      "subtitle": "Bridal Portrait Â· 2023",
+      "category": "photography",
+      "aspect": 1.48,
+      "description": "Soft tulle, morning mist, quiet confidence.",
+      "image": ""
+    },
+    {
+      "title": "Summer Skin",
+      "subtitle": "Portrait Series Â· 2024",
+      "category": "editorial",
+      "aspect": 0.62,
+      "description": "A portrait series on a Taipei rooftop. Unposed. Alive.",
+      "image": ""
+    },
+    {
+      "title": "Morning Ritual",
+      "subtitle": "F&B Editorial Â· 2024",
+      "category": "product",
+      "aspect": 1.0,
+      "description": "A coffee brand shoot â warmth, ritual, first light.",
+      "image": ""
+    },
+    {
+      "title": "Midnight City",
+      "subtitle": "Portrait Â· Taipei Â· 2024",
+      "category": "photography",
+      "aspect": 0.64,
+      "description": "Taipei after midnight. Neon reflections and a single figure.",
+      "image": ""
+    },
+    {
+      "title": "Forma",
+      "subtitle": "Brand Identity Â· 2024",
+      "category": "graphic",
+      "aspect": 1.0,
+      "description": "A complete brand system for an architecture firm.",
+      "image": ""
+    },
+    {
+      "title": "Meridian",
+      "subtitle": "Publication Design Â· 2023",
+      "category": "graphic",
+      "aspect": 1.41,
+      "description": "Annual report redesign. Swiss grid, rigorous typographic hierarchy.",
+      "image": ""
+    },
+    {
+      "title": "Studio North",
+      "subtitle": "Brand Identity Â· 2024",
+      "category": "graphic",
+      "aspect": 0.72,
+      "description": "Identity for a design studio. Minimal, scalable, built to last.",
+      "image": ""
+    },
+    {
+      "title": "Offset",
+      "subtitle": "Poster Series Â· 2023",
+      "category": "graphic",
+      "aspect": 1.41,
+      "description": "8 exhibition posters for a contemporary art gallery.",
+      "image": ""
+    },
+    {
+      "title": "Edge Vol.3",
+      "subtitle": "Editorial Layout Â· 2024",
+      "category": "editorial",
+      "aspect": 1.38,
+      "description": "Art direction for a quarterly design publication.",
+      "image": ""
+    },
+    {
+      "title": "Solstice",
+      "subtitle": "Fashion Campaign Â· 2024",
+      "category": "photography",
+      "aspect": 1.5,
+      "description": "Fashion editorial exploring negative space through a monochrome lens.",
+      "image": ""
+    },
+    {
+      "title": "KOTO",
+      "subtitle": "Brand Identity Â· 2023",
+      "category": "graphic",
+      "aspect": 1.0,
+      "description": "Visual identity for an independent Japanese restaurant.",
+      "image": ""
+    }
+  ]
+}
