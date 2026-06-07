@@ -8,6 +8,72 @@ public_folder: /uploads
 locale: zh_Hant
 
 collections:
+  - name: site
+    label: Site Content
+    files:
+      - name: site_content
+        label: All Page Text
+        file: data/site.json
+        fields:
+          - name: site
+            label: Global / SEO
+            widget: object
+            fields:
+              - { name: logo, label: Logo Text, widget: string }
+              - { name: title, label: Page Title (SEO), widget: string }
+              - { name: description, label: Meta Description, widget: text }
+              - { name: og_title, label: OG Title, widget: string }
+              - { name: og_description, label: OG Description, widget: text }
+              - { name: footer_copyright, label: Footer Copyright, widget: string }
+
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: tag, label: Tag Line, widget: string }
+              - { name: heading_line1, label: Heading Line 1, widget: string }
+              - { name: heading_line2, label: Heading Line 2 (italic), widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: cta, label: CTA Button Text, widget: string }
+
+          - name: about
+            label: About Section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow Label, widget: string }
+              - { name: heading, label: Heading (use newline for line breaks), widget: text }
+              - { name: body1, label: Paragraph 1, widget: text }
+              - { name: body2, label: Paragraph 2, widget: text }
+              - { name: stat1_number, label: Stat 1 - Number, widget: string }
+              - { name: stat1_label, label: Stat 1 - Label, widget: string }
+              - { name: stat2_number, label: Stat 2 - Number, widget: string }
+              - { name: stat2_label, label: Stat 2 - Label, widget: string }
+              - { name: stat3_number, label: Stat 3 - Number, widget: string }
+              - { name: stat3_label, label: Stat 3 - Label, widget: string }
+
+          - name: services
+            label: Services
+            widget: list
+            fields:
+              - { name: number, label: Number (e.g. 01), widget: string }
+              - { name: title, label: Service Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: tags, label: Tags, widget: string }
+
+          - name: contact
+            label: Contact Section
+            widget: object
+            fields:
+              - { name: heading, label: Heading (use newline for line breaks), widget: text }
+              - { name: email, label: Email Address, widget: string }
+              - name: socials
+                label: Social Links
+                widget: list
+                fields:
+                  - { name: name, label: Platform Name, widget: string }
+                  - { name: handle, label: Display Handle, widget: string }
+                  - { name: url, label: URL, widget: string }
+
   - name: works
     label: Works
     files:
@@ -21,15 +87,8 @@ collections:
             widget: list
             summary: "{{fields.title}} - {{fields.category}}"
             fields:
-              - name: title
-                label: Title
-                widget: string
-
-              - name: subtitle
-                label: Subtitle
-                widget: string
-                hint: "e.g. Wedding Editorial 2024"
-
+              - { name: title, label: Title, widget: string }
+              - { name: subtitle, label: Subtitle, widget: string, hint: "e.g. Wedding Editorial 2024" }
               - name: category
                 label: Category
                 widget: select
@@ -38,18 +97,8 @@ collections:
                   - { label: Graphic Design, value: graphic }
                   - { label: Editorial, value: editorial }
                   - { label: Product, value: product }
-
-              - name: image
-                label: Image
-                widget: image
-                required: false
-                hint: "Recommended width 1200px+, JPG or WebP."
-
-              - name: description
-                label: Description
-                widget: text
-                hint: "1-2 sentence description shown in the lightbox."
-
+              - { name: image, label: Image, widget: image, required: false, hint: "Recommended width 1200px+, JPG or WebP." }
+              - { name: description, label: Description, widget: text, hint: "1-2 sentence description shown in the lightbox." }
               - name: aspect
                 label: Aspect Ratio (placeholder only)
                 widget: number
