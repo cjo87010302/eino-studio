@@ -36,7 +36,7 @@
       "title": "Precision",
       "subtitle": "Watch Campaign Â· 2023",
       "category": "product",
-      "aspect": 1.0,
+      "aspect": 1,
       "description": "A composition as exact as the movement inside the case.",
       "image": ""
     },
@@ -60,7 +60,7 @@
       "title": "Morning Ritual",
       "subtitle": "F&B Editorial Â· 2024",
       "category": "product",
-      "aspect": 1.0,
+      "aspect": 1,
       "description": "A coffee brand shoot â warmth, ritual, first light.",
       "image": ""
     },
@@ -76,7 +76,7 @@
       "title": "Forma",
       "subtitle": "Brand Identity Â· 2024",
       "category": "graphic",
-      "aspect": 1.0,
+      "aspect": 1,
       "description": "A complete brand system for an architecture firm.",
       "image": ""
     },
@@ -94,7 +94,7 @@
       "category": "graphic",
       "aspect": 0.72,
       "description": "Identity for a design studio. Minimal, scalable, built to last.",
-      "image": ""
+      "image": "/uploads/夢幻海浪場景整合_高清版.png"
     },
     {
       "title": "Offset",
@@ -124,7 +124,7 @@
       "title": "KOTO",
       "subtitle": "Brand Identity Â· 2023",
       "category": "graphic",
-      "aspect": 1.0,
+      "aspect": 1,
       "description": "Visual identity for an independent Japanese restaurant.",
       "image": ""
     }
