@@ -1,0 +1,63 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# ä¸å³çåçå­æ¾å¨ /uploads è³æå¤¾
+media_folder: uploads
+public_folder: /uploads
+
+locale: zh_Hant
+
+collections:
+  - name: works
+    label: ä½åé
+    files:
+      - name: works_list
+        label: ææä½å
+        file: data/works.json
+        fields:
+          - name: works
+            label: ä½ååè¡¨
+            label_singular: ä½å
+            widget: list
+            summary: "{{fields.title}} â {{fields.category}}"
+            fields:
+              - name: title
+                label: ä½ååç¨±
+                widget: string
+
+              - name: subtitle
+                label: å¯æ¨é¡
+                widget: string
+                hint: "ä¾ï¼Wedding Editorial Â· 2024"
+
+              - name: category
+                label: åé¡
+                widget: select
+                options:
+                  - { label: æå½± Photography, value: photography }
+                  - { label: å¹³é¢è¨­è¨ Graphic Design, value: graphic }
+                  - { label: ç·¨è¼¯è¨­è¨ Editorial, value: editorial }
+                  - { label: åå Product, value: product }
+
+              - name: image
+                label: ä½ååç
+                widget: image
+                required: false
+                hint: "ä¸å³ç§çå¾æèªååä»£ä½ä½è²å¡ãå»ºè­°å¯¬åº¦ 1200px ä»¥ä¸ï¼JPG æ WebPã"
+
+              - name: description
+                label: ä½åæè¿°
+                widget: text
+                hint: "1â2 å¥ç°¡ç­æè¿°ï¼é¡¯ç¤ºæ¼çç®±è©³æé ã"
+
+              - name: aspect
+                label: ä½ä½æ¯ä¾ï¼æªä¸å³åçæä½¿ç¨ï¼
+                widget: number
+                value_type: float
+                min: 0.3
+                max: 2.5
+                step: 0.01
+                default: 1.0
+                hint: "å¯¬é¤ä»¥é«ï¼ä¾å¦ç´å¼ 0.75ãæ¹å½¢ 1.0ãæ©«å¼ 1.5ãä¸å³åçå¾ä¸å½±é¿é¡¯ç¤ºã"
+                required: false
