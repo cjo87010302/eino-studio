@@ -11,13 +11,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400&family=Noto+Serif+TC:wght@300;400&family=Noto+Sans+TC:wght@200;300;400&display=swap" rel="stylesheet">
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
 --w:#fafaf8;--b:#0a0a09;--g:#888884;--l:#e8e8e4;--r:#d8d8d4;
---se:'Cormorant',serif;--sa:'DM Sans',sans-serif;
+--se:'Cormorant','Noto Serif TC',serif;--sa:'DM Sans','Noto Sans TC',sans-serif;
 --ease-out-quart:cubic-bezier(.16,1,.3,1);
 }
 html{scroll-behavior:smooth}
@@ -213,8 +213,8 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 </head>
 <body>
 
-<div id="lb" role="dialog" aria-modal="true" aria-label="Work Detail">
-<button class="lbx" onclick="closeLb()">&#8592; Close</button>
+<div id="lb" role="dialog" aria-modal="true" aria-label="作品詳情">
+<button class="lbx" id="lb-close" onclick="closeLb()">&#8592; 關閉</button>
 <div class="lbw">
 <div id="lia"></div>
 <div class="lbp">
@@ -224,40 +224,40 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 <div class="lbrl"></div>
 <div class="lbd" id="lbd"></div>
 <div class="lbnav">
-<button class="lbb" onclick="moveLb(-1)">&#8592; Prev</button>
-<button class="lbb" onclick="moveLb(1)">Next &#8594;</button>
+<button class="lbb" id="lb-prev" onclick="moveLb(-1)">&#8592; 上一個</button>
+<button class="lbb" id="lb-next" onclick="moveLb(1)">下一個 &#8594;</button>
 </div>
 </div>
 </div>
 </div>
 
-<nav role="navigation" aria-label="Main Navigation">
+<nav role="navigation" aria-label="主導覽">
 <span class="logo" id="logo"><em>Eino</em></span>
 <div class="nav-cats" id="nc">
-<button class="nc on" data-cat="all">All</button>
-<button class="nc" data-cat="photography">Photography</button>
-<button class="nc" data-cat="graphic">Graphic Design</button>
-<button class="nc" data-cat="editorial">Editorial</button>
-<button class="nc" data-cat="product">Product</button>
+<button class="nc on" data-cat="all">全部</button>
+<button class="nc" data-cat="photography">攝影</button>
+<button class="nc" data-cat="graphic">平面設計</button>
+<button class="nc" data-cat="editorial">編輯設計</button>
+<button class="nc" data-cat="product">產品</button>
 </div>
 <div class="nav-r">
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#about" id="nav-about">關於</a>
+<a href="#contact" id="nav-contact">聯絡</a>
 </div>
-<button class="ham" id="hamBtn" aria-label="Open Menu" aria-expanded="false">
+<button class="ham" id="hamBtn" aria-label="開啟選單" aria-expanded="false">
 <span></span><span></span><span></span>
 </button>
 </nav>
 
 <div class="mob-menu" id="mobMenu">
-<a href="#about" onclick="closeMob()">About</a>
-<a href="#contact" onclick="closeMob()">Contact</a>
-<div class="mob-menu-label">Works</div>
-<button data-cat="all" onclick="setF('all');closeMob()">All</button>
-<button data-cat="photography" onclick="setF('photography');closeMob()">Photography</button>
-<button data-cat="graphic" onclick="setF('graphic');closeMob()">Graphic Design</button>
-<button data-cat="editorial" onclick="setF('editorial');closeMob()">Editorial</button>
-<button data-cat="product" onclick="setF('product');closeMob()">Product</button>
+<a href="#about" id="m-about" onclick="closeMob()">關於</a>
+<a href="#contact" id="m-contact" onclick="closeMob()">聯絡</a>
+<div class="mob-menu-label" id="m-works-label">作品</div>
+<button data-cat="all" onclick="setF('all');closeMob()">全部</button>
+<button data-cat="photography" onclick="setF('photography');closeMob()">攝影</button>
+<button data-cat="graphic" onclick="setF('graphic');closeMob()">平面設計</button>
+<button data-cat="editorial" onclick="setF('editorial');closeMob()">編輯設計</button>
+<button data-cat="product" onclick="setF('product');closeMob()">產品</button>
 </div>
 
 <section id="hero">
@@ -277,18 +277,18 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 </section>
 
 <div class="sh reveal" id="works">
-<h2>Selected<br>Works</h2>
+<h2 id="works-title">精選<br>作品</h2>
 <div class="sh-r">
 <span class="sh-n" id="wc">&#8212;</span>
-<span class="sh-l">Projects</span>
+<span class="sh-l" id="works-label">專案</span>
 </div>
 </div>
 <div id="filt">
-<button class="gf on" data-cat="all">All Work</button>
-<button class="gf" data-cat="photography">Photography</button>
-<button class="gf" data-cat="graphic">Graphic Design</button>
-<button class="gf" data-cat="editorial">Editorial</button>
-<button class="gf" data-cat="product">Product</button>
+<button class="gf on" data-cat="all">全部作品</button>
+<button class="gf" data-cat="photography">攝影</button>
+<button class="gf" data-cat="graphic">平面設計</button>
+<button class="gf" data-cat="editorial">編輯設計</button>
+<button class="gf" data-cat="product">產品</button>
 </div>
 <div id="grid" role="list"></div>
 
@@ -307,10 +307,10 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 </div>
 </section>
 
-<div class="sh reveal"><h2>Services</h2></div>
+<div class="sh reveal"><h2 id="services-title">服務</h2></div>
 <div id="srv"></div>
 
-<div class="sh reveal"><h2>Get in<br>Touch</h2></div>
+<div class="sh reveal"><h2 id="contact-title">聯絡<br>我們</h2></div>
 <section id="contact">
 <div class="c-l reveal-left">
 <div>
@@ -321,44 +321,46 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 </div>
 <form class="c-r reveal" name="contact" data-netlify="true" onsubmit="return false;">
 <input type="hidden" name="form-name" value="contact">
-<span class="fl">Send a Message</span>
+<span class="fl" id="form-heading">傳送訊息</span>
 <div class="fg-row">
 <div class="fg" id="fg-name">
-<input type="text" id="fn" name="name" placeholder=" "><label for="fn">Name</label>
-<span class="err-msg">Please enter your name.</span>
+<input type="text" id="fn" name="name" placeholder=" "><label for="fn" id="lbl-name">姓名</label>
+<span class="err-msg" id="err-name">請輸入你的姓名。</span>
 </div>
 <div class="fg" id="fg-email">
-<input type="email" id="fe" name="email" placeholder=" "><label for="fe">Email</label>
-<span class="err-msg">Please enter a valid email.</span>
+<input type="email" id="fe" name="email" placeholder=" "><label for="fe" id="lbl-email">電子郵件</label>
+<span class="err-msg" id="err-email">請輸入有效的電子郵件。</span>
 </div>
 </div>
 <div class="fg" id="fg-svc">
 <select id="fs" name="service" onchange="this.style.color='#0a0a09';clearErr('fg-svc')">
-<option value="" disabled selected style="color:#888884">Service</option>
-<option>Commercial Photography</option>
-<option>Graphic Design</option>
-<option>Editorial &amp; Art Direction</option>
-<option>Other</option>
+<option value="" disabled selected id="opt-service" style="color:#888884">服務項目</option>
+<option>商業攝影</option>
+<option>平面設計</option>
+<option>編輯與藝術指導</option>
+<option>其他</option>
 </select>
-<span class="err-msg">Please select a service.</span>
+<span class="err-msg" id="err-service">請選擇服務項目。</span>
 </div>
-<div class="fg"><input type="text" id="fb" name="budget" placeholder=" "><label for="fb">Budget (optional)</label></div>
+<div class="fg"><input type="text" id="fb" name="budget" placeholder=" "><label for="fb" id="lbl-budget">預算（選填）</label></div>
 <div class="fg" id="fg-msg">
-<textarea id="fm" name="message" rows="4" placeholder=" "></textarea><label for="fm">Tell me about your project</label>
-<span class="err-msg">Please describe your project.</span>
+<textarea id="fm" name="message" rows="4" placeholder=" "></textarea><label for="fm" id="lbl-message">聊聊你的專案</label>
+<span class="err-msg" id="err-message">請描述你的專案。</span>
 </div>
-<button class="btn" id="sb" onclick="send()">Send Message</button>
+<button class="btn" id="sb" onclick="send()">送出訊息</button>
 </form>
 </section>
 
 <footer>
 <span class="fl2"><em id="footer-logo">Eino</em></span>
 <span class="fc" id="fc"></span>
-<button class="ft" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593; Top</button>
+<button class="ft" id="footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593; 回到頂端</button>
 </footer>
 
 <script>
 const catColor={photography:'#d4d0cc',product:'#c8ccd4',editorial:'#d8d4c8',graphic:'#d4d4d0'};
+let CAT={all:'全部',photography:'攝影',graphic:'平面設計',editorial:'編輯設計',product:'產品'};
+let SUBMIT_LABEL='送出訊息';
 
 function mediaEl(w,cls){
   if(w.image)return`<img class="${cls}" src="${w.image}" alt="${w.title}" loading="lazy">`;
@@ -367,6 +369,29 @@ function mediaEl(w,cls){
 }
 
 let W=[],cat='all',vis=[],lbIdx=0,revObs;
+
+function applyUI(u){
+  if(!u)return;
+  const cm={all:'cat_all',photography:'cat_photography',graphic:'cat_graphic',editorial:'cat_editorial',product:'cat_product'};
+  Object.keys(cm).forEach(k=>{ if(u[cm[k]])CAT[k]=u[cm[k]]; });
+  const t=(id,v)=>{ if(v!=null){const el=document.getElementById(id); if(el)el.textContent=v;} };
+  const h=(id,v)=>{ if(v!=null){const el=document.getElementById(id); if(el)el.innerHTML=String(v).replace(/\n/g,'<br>');} };
+  document.querySelectorAll('.nc[data-cat],.mob-menu button[data-cat]').forEach(b=>{const c=b.dataset.cat; if(CAT[c])b.textContent=CAT[c];});
+  document.querySelectorAll('.gf[data-cat]').forEach(b=>{const c=b.dataset.cat; b.textContent = c==='all' ? (u.filter_all||b.textContent) : (CAT[c]||b.textContent);});
+  t('nav-about',u.nav_about); t('nav-contact',u.nav_contact);
+  t('m-about',u.nav_about); t('m-contact',u.nav_contact); t('m-works-label',u.menu_works_label);
+  h('works-title',u.works_title); t('works-label',u.works_label);
+  t('services-title',u.services_title); h('contact-title',u.contact_title);
+  t('form-heading',u.form_heading);
+  t('lbl-name',u.form_name); t('lbl-email',u.form_email); t('lbl-budget',u.form_budget); t('lbl-message',u.form_message);
+  t('opt-service',u.form_service);
+  t('err-name',u.form_err_name); t('err-email',u.form_err_email); t('err-service',u.form_err_service); t('err-message',u.form_err_message);
+  if(u.form_submit){SUBMIT_LABEL=u.form_submit; t('sb',u.form_submit);}
+  if(u.footer_top)t('footer-top','↑ '+u.footer_top);
+  if(u.lightbox_close)t('lb-close','← '+u.lightbox_close);
+  if(u.lightbox_prev)t('lb-prev','← '+u.lightbox_prev);
+  if(u.lightbox_next)t('lb-next',u.lightbox_next+' →');
+}
 
 function applySite(s){
   if(!s)return;
@@ -415,6 +440,8 @@ function applySite(s){
         <span class="sv2">${sc.handle||''}</span>
       </a>`).join('');
   }
+
+  applyUI(s.ui);
 }
 
 async function init(){
@@ -440,7 +467,7 @@ function build(){
     const d=document.createElement('div');
     d.className='card';d.setAttribute('role','listitem');d.setAttribute('tabindex','0');
     d.setAttribute('aria-label',`${w.title} - ${w.subtitle}`);
-    d.innerHTML=`${mediaEl(w,'ci')}<div class="cb">${w.category}</div><div class="co"><div class="ci2"><div class="ct">${w.title}</div><div class="cs">${w.subtitle}</div></div></div>`;
+    d.innerHTML=`${mediaEl(w,'ci')}<div class="cb">${CAT[w.category]||w.category}</div><div class="co"><div class="ci2"><div class="ct">${w.title}</div><div class="cs">${w.subtitle}</div></div></div>`;
     d.onclick=()=>openLb(i);
     d.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(i);}};
     g.appendChild(d);
@@ -451,7 +478,7 @@ function build(){
     document.getElementById('hImg').innerHTML=mediaEl(h0,'ph-hero');
     const hYr=h0.subtitle&&h0.subtitle.indexOf('·')>-1?h0.subtitle.split('·').pop().trim():'';
     document.getElementById('hTitle').textContent=h0.title+(hYr?', '+hYr:'');
-    document.getElementById('hCat').textContent=h0.category;
+    document.getElementById('hCat').textContent=CAT[h0.category]||h0.category;
   }
   const h2=W[2]||W[0];
   if(h2){
@@ -495,7 +522,7 @@ function renderLb(){
   else{const bg=catColor[w.category]||'#e8e8e4';ia.innerHTML=`<div class="ph-lb" style="background:${bg};aspect-ratio:${w.aspect||1};width:min(400px,78vw)"><span style="font-family:serif;font-style:italic;font-size:1rem;opacity:.35">${w.title}</span></div>`;}
   document.getElementById('lbnum').textContent=String(lbIdx+1).padStart(2,'0')+' / '+String(vis.length).padStart(2,'0');
   document.getElementById('lbt').textContent=w.title;
-  document.getElementById('lbs').textContent=w.subtitle+' - '+w.category;
+  document.getElementById('lbs').textContent=w.subtitle+' · '+(CAT[w.category]||w.category);
   document.getElementById('lbd').textContent=w.description;
 }
 document.getElementById('lb').addEventListener('click',e=>{if(e.target===document.getElementById('lb'))closeLb();});
@@ -528,20 +555,20 @@ function send(){
   if(!m){showErr('fg-msg');ok=false;}
   if(!ok)return;
   const btn=document.getElementById('sb');
-  btn.textContent='Sending…';btn.disabled=true;
+  btn.textContent='傳送中…';btn.disabled=true;
   const enc=d=>Object.keys(d).map(k=>`${encodeURIComponent(k)}=${encodeURIComponent(d[k])}`).join('&');
   fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
     body:enc({'form-name':'contact',name:n,email:e,service:s,budget:bg,message:m})
   }).then(()=>{
-    btn.textContent='Sent ✓';btn.classList.add('sent');
+    btn.textContent='已送出 ✓';btn.classList.add('sent');
     setTimeout(()=>{
-      btn.textContent='Send Message';btn.classList.remove('sent');btn.disabled=false;
+      btn.textContent=SUBMIT_LABEL;btn.classList.remove('sent');btn.disabled=false;
       ['fn','fe','fb','fm'].forEach(id=>document.getElementById(id).value='');
       document.getElementById('fs').selectedIndex=0;document.getElementById('fs').style.color='';
     },3500);
   }).catch(()=>{
-    btn.textContent='Error — try again';btn.disabled=false;
-    setTimeout(()=>{btn.textContent='Send Message';},3000);
+    btn.textContent='發生錯誤，請再試一次';btn.disabled=false;
+    setTimeout(()=>{btn.textContent=SUBMIT_LABEL;},3000);
   });
 }
 ['fn','fe','fs','fm'].forEach(id=>{
@@ -567,22 +594,22 @@ if(window.netlifyIdentity){
 }
 
 const FALLBACK=[
-  {title:"First Light",subtitle:"Bridal Ceremony 2024",category:"photography",aspect:.72,description:"A quiet morning ceremony in natural light.",image:""},
-  {title:"Artisan No.5",subtitle:"Fragrance Campaign 2024",category:"product",aspect:1.52,description:"Precision lighting, zero props, total intention.",image:""},
-  {title:"Quiet Force",subtitle:"Corporate Portrait 2023",category:"photography",aspect:1.45,description:"Character-driven portraiture.",image:""},
-  {title:"Golden Hour",subtitle:"Wedding Editorial 2024",category:"editorial",aspect:.65,description:"Late afternoon vows, backlit silhouettes.",image:""},
-  {title:"Precision",subtitle:"Watch Campaign 2023",category:"product",aspect:1.0,description:"A composition as exact as the movement inside the case.",image:""},
-  {title:"Autumn Veil",subtitle:"Bridal Portrait 2023",category:"photography",aspect:1.48,description:"Soft tulle, morning mist, quiet confidence.",image:""},
-  {title:"Summer Skin",subtitle:"Portrait Series 2024",category:"editorial",aspect:.62,description:"A portrait series on a Taipei rooftop.",image:""},
-  {title:"Morning Ritual",subtitle:"F&B Editorial 2024",category:"product",aspect:1.0,description:"A coffee brand shoot.",image:""},
-  {title:"Midnight City",subtitle:"Portrait Taipei 2024",category:"photography",aspect:.64,description:"Taipei after midnight.",image:""},
-  {title:"Forma",subtitle:"Brand Identity 2024",category:"graphic",aspect:1.0,description:"A complete brand system for an architecture firm.",image:""},
-  {title:"Meridian",subtitle:"Publication Design 2023",category:"graphic",aspect:1.41,description:"Annual report redesign.",image:""},
-  {title:"Studio North",subtitle:"Brand Identity 2024",category:"graphic",aspect:.72,description:"Identity for a design studio.",image:""},
-  {title:"Offset",subtitle:"Poster Series 2023",category:"graphic",aspect:1.41,description:"8 exhibition posters for a contemporary art gallery.",image:""},
-  {title:"Edge Vol.3",subtitle:"Editorial Layout 2024",category:"editorial",aspect:1.38,description:"Art direction for a quarterly design publication.",image:""},
-  {title:"Solstice",subtitle:"Fashion Campaign 2024",category:"photography",aspect:1.5,description:"Fashion editorial exploring negative space.",image:""},
-  {title:"KOTO",subtitle:"Brand Identity 2023",category:"graphic",aspect:1.0,description:"Visual identity for an independent Japanese restaurant.",image:""},
+  {title:"初光",subtitle:"婚禮紀實 · 2024",category:"photography",aspect:.72,description:"自然光下安靜的晨間儀式。",image:""},
+  {title:"匠 No.5",subtitle:"香氛形象 · 2024",category:"product",aspect:1.52,description:"精準的光線，毫無道具，全然的專注。",image:""},
+  {title:"靜默的力量",subtitle:"企業人像 · 2023",category:"photography",aspect:1.45,description:"以人物為核心的肖像。",image:""},
+  {title:"黃金時刻",subtitle:"婚禮編輯 · 2024",category:"editorial",aspect:.65,description:"午後的誓言，逆光的剪影。",image:""},
+  {title:"精準",subtitle:"腕錶形象 · 2023",category:"product",aspect:1.0,description:"如同錶殼內機芯一般精確的構圖。",image:""},
+  {title:"秋紗",subtitle:"新娘肖像 · 2023",category:"photography",aspect:1.48,description:"輕柔的薄紗、晨霧，與安靜的自信。",image:""},
+  {title:"夏日肌理",subtitle:"人像系列 · 2024",category:"editorial",aspect:.62,description:"在台北頂樓拍攝的人像系列。",image:""},
+  {title:"晨間儀式",subtitle:"餐飲編輯 · 2024",category:"product",aspect:1.0,description:"咖啡品牌的拍攝。",image:""},
+  {title:"午夜城市",subtitle:"人像 · 台北 · 2024",category:"photography",aspect:.64,description:"午夜後的台北。",image:""},
+  {title:"Forma",subtitle:"品牌識別 · 2024",category:"graphic",aspect:1.0,description:"為建築事務所打造的完整品牌系統。",image:""},
+  {title:"Meridian",subtitle:"出版設計 · 2023",category:"graphic",aspect:1.41,description:"年報改版。",image:""},
+  {title:"Studio North",subtitle:"品牌識別 · 2024",category:"graphic",aspect:.72,description:"為設計工作室打造的識別。",image:""},
+  {title:"Offset",subtitle:"海報系列 · 2023",category:"graphic",aspect:1.41,description:"為當代藝術畫廊設計的八張展覽海報。",image:""},
+  {title:"Edge Vol.3",subtitle:"編輯排版 · 2024",category:"editorial",aspect:1.38,description:"季度設計刊物的藝術指導。",image:""},
+  {title:"至點",subtitle:"時尚形象 · 2024",category:"photography",aspect:1.5,description:"以單色鏡頭探索負空間的時尚編輯。",image:""},
+  {title:"KOTO",subtitle:"品牌識別 · 2023",category:"graphic",aspect:1.0,description:"為獨立日本料理店打造的視覺識別。",image:""},
 ];
 
 init();
