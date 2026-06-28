@@ -9,103 +9,136 @@ locale: zh_Hant
 
 collections:
   - name: site
-    label: Site Content
+    label: 網站內容
     files:
       - name: site_content
-        label: All Page Text
+        label: 全站文字
         file: data/site.json
         fields:
           - name: site
-            label: Global / SEO
+            label: 全站 / SEO
             widget: object
             fields:
-              - { name: logo, label: Logo Text, widget: string }
-              - { name: title, label: Page Title (SEO), widget: string }
-              - { name: description, label: Meta Description, widget: text }
-              - { name: og_title, label: OG Title, widget: string }
-              - { name: og_description, label: OG Description, widget: text }
-              - { name: footer_copyright, label: Footer Copyright, widget: string }
+              - { name: logo, label: Logo 文字, widget: string }
+              - { name: title, label: 網頁標題（SEO）, widget: string }
+              - { name: description, label: 網站描述, widget: text }
+              - { name: og_title, label: 分享標題（OG）, widget: string }
+              - { name: og_description, label: 分享描述（OG）, widget: text }
+              - { name: footer_copyright, label: 頁尾版權, widget: string }
 
           - name: hero
-            label: Hero Section
+            label: 首屏區
             widget: object
             fields:
-              - { name: tag, label: Tag Line, widget: string }
-              - { name: heading_line1, label: Heading Line 1, widget: string }
-              - { name: heading_line2, label: Heading Line 2 (italic), widget: string }
-              - { name: description, label: Description, widget: text }
-              - { name: cta, label: CTA Button Text, widget: string }
+              - { name: tag, label: 上方標籤, widget: string }
+              - { name: heading_line1, label: 主標第一行, widget: string }
+              - { name: heading_line2, label: 主標第二行（斜體）, widget: string }
+              - { name: description, label: 描述, widget: text }
+              - { name: cta, label: 按鈕文字, widget: string }
 
           - name: about
-            label: About Section
+            label: 關於區
             widget: object
             fields:
-              - { name: eyebrow, label: Eyebrow Label, widget: string }
-              - { name: heading, label: Heading (use newline for line breaks), widget: text }
-              - { name: body1, label: Paragraph 1, widget: text }
-              - { name: body2, label: Paragraph 2, widget: text }
-              - { name: stat1_number, label: Stat 1 - Number, widget: string }
-              - { name: stat1_label, label: Stat 1 - Label, widget: string }
-              - { name: stat2_number, label: Stat 2 - Number, widget: string }
-              - { name: stat2_label, label: Stat 2 - Label, widget: string }
-              - { name: stat3_number, label: Stat 3 - Number, widget: string }
-              - { name: stat3_label, label: Stat 3 - Label, widget: string }
+              - { name: eyebrow, label: 小標籤, widget: string }
+              - { name: heading, label: 標題（用換行斷行）, widget: text }
+              - { name: body1, label: 段落一, widget: text }
+              - { name: body2, label: 段落二, widget: text }
+              - { name: stat1_number, label: 數據一 - 數字, widget: string }
+              - { name: stat1_label, label: 數據一 - 標籤, widget: string }
+              - { name: stat2_number, label: 數據二 - 數字, widget: string }
+              - { name: stat2_label, label: 數據二 - 標籤, widget: string }
+              - { name: stat3_number, label: 數據三 - 數字, widget: string }
+              - { name: stat3_label, label: 數據三 - 標籤, widget: string }
 
           - name: services
-            label: Services
+            label: 服務項目
             widget: list
             fields:
-              - { name: number, label: Number (e.g. 01), widget: string }
-              - { name: title, label: Service Title, widget: string }
-              - { name: description, label: Description, widget: text }
-              - { name: tags, label: Tags, widget: string }
+              - { name: number, label: 編號（如 01）, widget: string }
+              - { name: title, label: 服務名稱, widget: string }
+              - { name: description, label: 描述, widget: text }
+              - { name: tags, label: 標籤, widget: string }
 
           - name: contact
-            label: Contact Section
+            label: 聯絡區
             widget: object
             fields:
-              - { name: heading, label: Heading (use newline for line breaks), widget: text }
-              - { name: email, label: Email Address, widget: string }
+              - { name: heading, label: 標題（用換行斷行）, widget: text }
+              - { name: email, label: 電子郵件, widget: string }
               - name: socials
-                label: Social Links
+                label: 社群連結
                 widget: list
                 fields:
-                  - { name: name, label: Platform Name, widget: string }
-                  - { name: handle, label: Display Handle, widget: string }
-                  - { name: url, label: URL, widget: string }
+                  - { name: name, label: 平台名稱, widget: string }
+                  - { name: handle, label: 顯示帳號, widget: string }
+                  - { name: url, label: 連結網址, widget: string }
+
+          - name: ui
+            label: 介面文字（按鈕 / 標籤 / 導覽）
+            widget: object
+            fields:
+              - { name: nav_about, label: 導覽 - 關於, widget: string }
+              - { name: nav_contact, label: 導覽 - 聯絡, widget: string }
+              - { name: menu_works_label, label: 手機選單 - 作品標題, widget: string }
+              - { name: cat_all, label: 分類 - 全部, widget: string }
+              - { name: cat_photography, label: 分類 - 攝影, widget: string }
+              - { name: cat_graphic, label: 分類 - 平面設計, widget: string }
+              - { name: cat_editorial, label: 分類 - 編輯設計, widget: string }
+              - { name: cat_product, label: 分類 - 產品, widget: string }
+              - { name: filter_all, label: 篩選 - 全部作品, widget: string }
+              - { name: works_title, label: 作品區標題（用換行斷行）, widget: text }
+              - { name: works_label, label: 作品區 - 計數標籤, widget: string }
+              - { name: services_title, label: 服務區標題, widget: string }
+              - { name: contact_title, label: 聯絡區標題（用換行斷行）, widget: text }
+              - { name: form_heading, label: 表單 - 標題, widget: string }
+              - { name: form_name, label: 表單 - 姓名, widget: string }
+              - { name: form_email, label: 表單 - 電子郵件, widget: string }
+              - { name: form_service, label: 表單 - 服務項目, widget: string }
+              - { name: form_budget, label: 表單 - 預算, widget: string }
+              - { name: form_message, label: 表單 - 訊息, widget: string }
+              - { name: form_submit, label: 表單 - 送出按鈕, widget: string }
+              - { name: form_err_name, label: 錯誤訊息 - 姓名, widget: string }
+              - { name: form_err_email, label: 錯誤訊息 - 電子郵件, widget: string }
+              - { name: form_err_service, label: 錯誤訊息 - 服務項目, widget: string }
+              - { name: form_err_message, label: 錯誤訊息 - 訊息, widget: string }
+              - { name: footer_top, label: 頁尾 - 回到頂端, widget: string }
+              - { name: lightbox_close, label: 燈箱 - 關閉, widget: string }
+              - { name: lightbox_prev, label: 燈箱 - 上一個, widget: string }
+              - { name: lightbox_next, label: 燈箱 - 下一個, widget: string }
 
   - name: works
-    label: Works
+    label: 作品
     files:
       - name: works_list
-        label: All Works
+        label: 所有作品
         file: data/works.json
         fields:
           - name: works
-            label: Work List
-            label_singular: Work
+            label: 作品列表
+            label_singular: 作品
             widget: list
             summary: "{{fields.title}} - {{fields.category}}"
             fields:
-              - { name: title, label: Title, widget: string }
-              - { name: subtitle, label: Subtitle, widget: string, hint: "e.g. Wedding Editorial 2024" }
+              - { name: title, label: 標題, widget: string }
+              - { name: subtitle, label: 副標題, widget: string, hint: "例如：婚禮編輯 · 2024" }
               - name: category
-                label: Category
+                label: 分類
                 widget: select
                 options:
-                  - { label: Photography, value: photography }
-                  - { label: Graphic Design, value: graphic }
-                  - { label: Editorial, value: editorial }
-                  - { label: Product, value: product }
-              - { name: image, label: Image, widget: image, required: false, hint: "Recommended width 1200px+, JPG or WebP." }
-              - { name: description, label: Description, widget: text, hint: "1-2 sentence description shown in the lightbox." }
+                  - { label: 攝影, value: photography }
+                  - { label: 平面設計, value: graphic }
+                  - { label: 編輯設計, value: editorial }
+                  - { label: 產品, value: product }
+              - { name: image, label: 圖片, widget: image, required: false, hint: "建議寬度 1200px 以上，JPG 或 WebP。" }
+              - { name: description, label: 描述, widget: text, hint: "顯示在燈箱中的 1-2 句說明。" }
               - name: aspect
-                label: Aspect Ratio (placeholder only)
+                label: 長寬比（僅佔位用）
                 widget: number
                 value_type: float
                 min: 0.3
                 max: 2.5
                 step: 0.01
                 default: 1.0
-                hint: "Width divided by height. Portrait: 0.75, Square: 1.0, Landscape: 1.5. Ignored once image uploaded."
+                hint: "寬除以高。直式：0.75，正方：1.0，橫式：1.5。上傳圖片後此值會被忽略。"
                 required: false
