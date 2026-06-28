@@ -160,7 +160,7 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 .ft{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);background:none;border:none;cursor:pointer;transition:color .2s}
 .ft:hover{color:var(--b)}
 
-#lb{position:fixed;inset:0;z-index:500;background:rgba(250,250,248,.97);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s
+#lb{position:fixed;inset:0;z-index:500;background:rgba(250,250,248,.97);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s}
 #lb.open{display:flex}
 #lb.vis{opacity:1}
 .lbw{display:grid;grid-template-columns:auto 260px;max-width:90vw;max-height:88vh;border:1px solid var(--r);background:var(--w);overflow:hidden;transform:scale(.97);transition:transform .35s var(--ease-out-quart)}
@@ -186,18 +186,21 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 #hero{grid-template-columns:1fr;min-height:auto}
 .h-l{border-right:none;padding-right:0;border-bottom:1px solid var(--r);padding-bottom:40px}
 .h-r{padding-left:0;padding-top:40px;align-items:flex-start;opacity:0;transform:translateY(16px);animation:fadeUp .8s var(--ease-out-quart) .3s forwards}
+.h-desc,.a-p{font-size:14px;line-height:1.9}
 #about{grid-template-columns:1fr}
 .a-img{display:none}
 .a-txt{padding:52px 28px}
 #srv{grid-template-columns:1fr}
 .sv{border-right:none;border-bottom:1px solid var(--r)}
 #contact{grid-template-columns:1fr}
-.c-l{border-right:none;border-bottom:1px solid var(--r);padding:52px 28py}
+.c-l{border-right:none;border-bottom:1px solid var(--r);padding:52px 28px}
 .c-r{padding:52px 28px}
 #grid{columns:2;column-gap:8px}
-.lbw{grid-template-columns:1fr}
-.lbp{display:none}
-#lia img{max-width:92vw;max-height:72vh}
+.lbw{grid-template-columns:1fr;max-height:88vh;overflow-y:auto}
+.lbp{border-left:none;border-top:1px solid var(--r);padding:26px 22px}
+#lia{max-height:none}
+#lia img{max-width:92vw;max-height:54vh}
+.lbd{font-size:14px;line-height:1.9}
 }
 @media(max-width:500px){
 #grid{columns:2}
@@ -372,7 +375,7 @@ function applySite(s){
   if(g.description)document.querySelector('meta[name="description"]').setAttribute('content',g.description);
   if(g.og_title)document.querySelector('meta[property="og:title"]').setAttribute('content',g.og_title);
   if(g.og_description)document.querySelector('meta[property="og:description"]').setAttribute('content',g.og_description);
-  if(g.logo){document.getElementById('logo').innerHTML<`<em>${g.logo}</em>`;document.getElementById('footer-logo').textContent=g.logo;}
+  if(g.logo){document.getElementById('logo').innerHTML=`<em>${g.logo}</em>`;document.getElementById('footer-logo').textContent=g.logo;}
   if(g.footer_copyright)document.getElementById('fc').textContent=g.footer_copyright;
 
   const h=s.hero||{};
@@ -446,7 +449,8 @@ function build(){
   const h0=W[0];
   if(h0){
     document.getElementById('hImg').innerHTML=mediaEl(h0,'ph-hero');
-    document.getElementById('hTitle').textContent=h0.title+(h0.subtitle?', '+h0.subtitle.split('·')[1]?.trim():'');
+    const hYr=h0.subtitle&&h0.subtitle.indexOf('·')>-1?h0.subtitle.split('·').pop().trim():'';
+    document.getElementById('hTitle').textContent=h0.title+(hYr?', '+hYr:'');
     document.getElementById('hCat').textContent=h0.category;
   }
   const h2=W[2]||W[0];
@@ -487,8 +491,8 @@ function moveLb(d){lbIdx=(lbIdx+d+vis.length)%vis.length;renderLb();}
 function renderLb(){
   const w=vis[lbIdx];
   const ia=document.getElementById('lia');
-  if(w.image){ia.innerHTML<`<img src="${w.image}" alt="${w.title}">`;}
-  else{const bg=catColor[w.category]||'#e8e8e4';ia.innerHTML<`<div class="ph-lb" style="background:${bg};aspect-ratio:${w.aspect||1};width:400px"><span style="font-family:serif;font-style:italic;font-size:1rem;opacity:.35">${w.title}</span></div>`;}
+  if(w.image){ia.innerHTML=`<img src="${w.image}" alt="${w.title}">`;}
+  else{const bg=catColor[w.category]||'#e8e8e4';ia.innerHTML=`<div class="ph-lb" style="background:${bg};aspect-ratio:${w.aspect||1};width:min(400px,78vw)"><span style="font-family:serif;font-style:italic;font-size:1rem;opacity:.35">${w.title}</span></div>`;}
   document.getElementById('lbnum').textContent=String(lbIdx+1).padStart(2,'0')+' / '+String(vis.length).padStart(2,'0');
   document.getElementById('lbt').textContent=w.title;
   document.getElementById('lbs').textContent=w.subtitle+' - '+w.category;
@@ -564,7 +568,7 @@ if(window.netlifyIdentity){
 
 const FALLBACK=[
   {title:"First Light",subtitle:"Bridal Ceremony 2024",category:"photography",aspect:.72,description:"A quiet morning ceremony in natural light.",image:""},
-  {title:"Artisan No.5",subtitle:"Fragrance Campaign 2024",content:"product",aspect:1.52,description:"Precision lighting, zero props, total intention.",image:""},
+  {title:"Artisan No.5",subtitle:"Fragrance Campaign 2024",category:"product",aspect:1.52,description:"Precision lighting, zero props, total intention.",image:""},
   {title:"Quiet Force",subtitle:"Corporate Portrait 2023",category:"photography",aspect:1.45,description:"Character-driven portraiture.",image:""},
   {title:"Golden Hour",subtitle:"Wedding Editorial 2024",category:"editorial",aspect:.65,description:"Late afternoon vows, backlit silhouettes.",image:""},
   {title:"Precision",subtitle:"Watch Campaign 2023",category:"product",aspect:1.0,description:"A composition as exact as the movement inside the case.",image:""},
