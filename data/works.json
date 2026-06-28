@@ -1,131 +1,131 @@
 {
   "works": [
     {
-      "title": "First Light",
-      "subtitle": "Bridal Ceremony · 2024",
+      "title": "初光",
+      "subtitle": "婚禮紀實 · 2024",
       "category": "photography",
       "aspect": 0.72,
-      "description": "A quiet morning ceremony in natural light. Every gesture documented as it happened.",
+      "description": "自然光下安靜的晨間儀式，每一個動作都如實記錄。",
       "image": ""
     },
     {
-      "title": "Artisan No.5",
-      "subtitle": "Fragrance Campaign · 2024",
+      "title": "匠 No.5",
+      "subtitle": "香氛形象 · 2024",
       "category": "product",
       "aspect": 1.52,
-      "description": "Precision lighting, zero props, total intention.",
+      "description": "精準的光線，毫無道具，全然的專注。",
       "image": ""
     },
     {
-      "title": "Quiet Force",
-      "subtitle": "Corporate Portrait · 2023",
+      "title": "靜默的力量",
+      "subtitle": "企業人像 · 2023",
       "category": "photography",
       "aspect": 1.45,
-      "description": "Character-driven portraiture. Revealing presence rather than constructing it.",
+      "description": "以人物為核心的肖像，呈現氣場，而非刻意塑造。",
       "image": ""
     },
     {
-      "title": "Golden Hour",
-      "subtitle": "Wedding Editorial · 2024",
+      "title": "黃金時刻",
+      "subtitle": "婚禮編輯 · 2024",
       "category": "editorial",
       "aspect": 0.65,
-      "description": "Late afternoon vows, backlit silhouettes — warmth as a visual language.",
+      "description": "午後的誓言，逆光的剪影——以溫度作為視覺語言。",
       "image": ""
     },
     {
-      "title": "Precision",
-      "subtitle": "Watch Campaign · 2023",
+      "title": "精準",
+      "subtitle": "腕錶形象 · 2023",
       "category": "product",
       "aspect": 1,
-      "description": "A composition as exact as the movement inside the case.",
+      "description": "如同錶殼內機芯一般精確的構圖。",
       "image": ""
     },
     {
-      "title": "Autumn Veil",
-      "subtitle": "Bridal Portrait · 2023",
+      "title": "秋紗",
+      "subtitle": "新娘肖像 · 2023",
       "category": "photography",
       "aspect": 1.48,
-      "description": "Soft tulle, morning mist, quiet confidence.",
+      "description": "輕柔的薄紗、清晨的霧氣，與安靜的自信。",
       "image": ""
     },
     {
-      "title": "Summer Skin",
-      "subtitle": "Portrait Series · 2024",
+      "title": "夏日肌理",
+      "subtitle": "人像系列 · 2024",
       "category": "editorial",
       "aspect": 0.62,
-      "description": "A portrait series on a Taipei rooftop. Unposed. Alive.",
+      "description": "在台北頂樓拍攝的人像系列。不擺拍，鮮活。",
       "image": ""
     },
     {
-      "title": "Morning Ritual",
-      "subtitle": "F&B Editorial · 2024",
+      "title": "晨間儀式",
+      "subtitle": "餐飲編輯 · 2024",
       "category": "product",
       "aspect": 1,
-      "description": "A coffee brand shoot — warmth, ritual, first light.",
+      "description": "咖啡品牌的拍攝——溫度、儀式，與第一道晨光。",
       "image": ""
     },
     {
-      "title": "Midnight City",
-      "subtitle": "Portrait · Taipei · 2024",
+      "title": "午夜城市",
+      "subtitle": "人像 · 台北 · 2024",
       "category": "photography",
       "aspect": 0.64,
-      "description": "Taipei after midnight. Neon reflections and a single figure.",
+      "description": "午夜後的台北。霓虹的倒影，與一個身影。",
       "image": ""
     },
     {
       "title": "Forma",
-      "subtitle": "Brand Identity · 2024",
+      "subtitle": "品牌識別 · 2024",
       "category": "graphic",
       "aspect": 1,
-      "description": "A complete brand system for an architecture firm.",
+      "description": "為一間建築事務所打造的完整品牌系統。",
       "image": "/uploads/夢幻海浪場景整合_高清版.png"
     },
     {
       "title": "Meridian",
-      "subtitle": "Publication Design · 2023",
+      "subtitle": "出版設計 · 2023",
       "category": "graphic",
       "aspect": 1.41,
-      "description": "Annual report redesign. Swiss grid, rigorous typographic hierarchy.",
+      "description": "年報改版。瑞士網格與嚴謹的字體層次。",
       "image": ""
     },
     {
       "title": "Studio North",
-      "subtitle": "Brand Identity · 2024",
+      "subtitle": "品牌識別 · 2024",
       "category": "graphic",
       "aspect": 0.72,
-      "description": "Identity for a design studio. Minimal, scalable, built to last.",
+      "description": "為一間設計工作室打造的識別。極簡、可延展、歷久彌新。",
       "image": "/uploads/夢幻海浪場景整合_高清版.png"
     },
     {
       "title": "Offset",
-      "subtitle": "Poster Series · 2023",
+      "subtitle": "海報系列 · 2023",
       "category": "graphic",
       "aspect": 1.41,
-      "description": "8 exhibition posters for a contemporary art gallery.",
+      "description": "為當代藝術畫廊設計的八張展覽海報。",
       "image": ""
     },
     {
       "title": "Edge Vol.3",
-      "subtitle": "Editorial Layout · 2024",
+      "subtitle": "編輯排版 · 2024",
       "category": "editorial",
       "aspect": 1.38,
-      "description": "Art direction for a quarterly design publication.",
+      "description": "為一本季度設計刊物擔任藝術指導。",
       "image": ""
     },
     {
-      "title": "Solstice",
-      "subtitle": "Fashion Campaign · 2024",
+      "title": "至點",
+      "subtitle": "時尚形象 · 2024",
       "category": "photography",
       "aspect": 1.5,
-      "description": "Fashion editorial exploring negative space through a monochrome lens.",
+      "description": "以單色鏡頭探索負空間的時尚編輯。",
       "image": ""
     },
     {
       "title": "KOTO",
-      "subtitle": "Brand Identity · 2023",
+      "subtitle": "品牌識別 · 2023",
       "category": "graphic",
       "aspect": 1,
-      "description": "Visual identity for an independent Japanese restaurant.",
+      "description": "為一間獨立日本料理店打造的視覺識別。",
       "image": ""
     }
   ]

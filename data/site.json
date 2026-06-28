@@ -1,43 +1,73 @@
 {
   "site": {
     "logo": "Eino",
-    "title": "Eino Studio - Photography & Design - Taipei",
-    "description": "A creative studio working at the intersection of commercial photography and graphic design. Based in Taipei.",
-    "og_title": "Eino Studio - Photography & Design",
-    "og_description": "Commercial photography, graphic design, and editorial art direction. Based in Taipei, working globally.",
-    "footer_copyright": "2025 Eino Studio - Taipei"
+    "title": "Eino Studio — 攝影與設計工作室 · 台北",
+    "description": "Eino Studio 是一間位於台北的創意工作室，遊走於商業攝影與平面設計之間。",
+    "og_title": "Eino Studio — 攝影與設計",
+    "og_description": "商業攝影、平面設計與編輯藝術指導。立足台北，服務全球。",
+    "footer_copyright": "2025 Eino Studio · 台北"
   },
   "hero": {
-    "tag": "Photography & Design Studio - Taipei",
+    "tag": "攝影與設計工作室 · 台北",
     "heading_line1": "Eino",
     "heading_line2": "Studio",
-    "description": "A creative studio working at the intersection of commercial photography and graphic design - crafting precise, memorable visual stories.",
-    "cta": "View Works"
+    "description": "一間遊走於商業攝影與平面設計之間的創意工作室，打造精準而難忘的視覺故事。",
+    "cta": "瀏覽作品"
   },
   "about": {
-    "eyebrow": "About the Studio",
-    "heading": "The eye that\ndoes not miss\nanything.",
-    "body1": "A creative studio with over a decade of experience across commercial photography, graphic design, and editorial. Based in Taipei, working globally.",
-    "body2": "Every frame and layout built on the same philosophy - restraint in form, clarity in intention.",
+    "eyebrow": "關於工作室",
+    "heading": "不放過任何\n細節的眼睛。",
+    "body1": "擁有逾十年經驗的創意工作室，橫跨商業攝影、平面設計與編輯領域。立足台北，服務全球。",
+    "body2": "每一個畫面與版面，都建立在同樣的信念上——形式上的克制，意圖上的清晰。",
     "stat1_number": "10+",
-    "stat1_label": "Years",
+    "stat1_label": "年資",
     "stat2_number": "500+",
-    "stat2_label": "Projects",
+    "stat2_label": "專案",
     "stat3_number": "80+",
-    "stat3_label": "Clients"
+    "stat3_label": "客戶"
   },
   "services": [
-    { "number": "01", "title": "Commercial Photography", "description": "Brand campaigns, product still life, editorial portraiture. Precision light control across every assignment.", "tags": "Photography - Direction" },
-    { "number": "02", "title": "Graphic Design", "description": "Brand identity, publication design, art direction. Visual systems that are rigorous, scalable, and intentional.", "tags": "Identity - Print - Digital" },
-    { "number": "03", "title": "Editorial & Art Direction", "description": "End-to-end creative direction for magazines, campaigns, and brand content.", "tags": "Editorial - Campaign" }
+    { "number": "01", "title": "商業攝影", "description": "品牌形象、產品靜物、人物編輯攝影。每一次拍攝都精準掌控光線。", "tags": "攝影 · 指導" },
+    { "number": "02", "title": "平面設計", "description": "品牌識別、出版設計、藝術指導。嚴謹、可延展且具意圖的視覺系統。", "tags": "識別 · 印刷 · 數位" },
+    { "number": "03", "title": "編輯與藝術指導", "description": "為雜誌、品牌與企劃提供從零到一的創意指導。", "tags": "編輯 · 企劃" }
   ],
   "contact": {
-    "heading": "Let us make\nsomething.",
+    "heading": "一起創造\n些什麼。",
     "email": "hello@eino.studio",
     "socials": [
       { "name": "Instagram", "handle": "@eino.studio", "url": "#" },
       { "name": "Behance", "handle": "behance.net/eino", "url": "#" },
       { "name": "LinkedIn", "handle": "linkedin.com/in/eino", "url": "#" }
     ]
+  },
+  "ui": {
+    "nav_about": "關於",
+    "nav_contact": "聯絡",
+    "menu_works_label": "作品",
+    "cat_all": "全部",
+    "cat_photography": "攝影",
+    "cat_graphic": "平面設計",
+    "cat_editorial": "編輯設計",
+    "cat_product": "產品",
+    "filter_all": "全部作品",
+    "works_title": "精選\n作品",
+    "works_label": "專案",
+    "services_title": "服務",
+    "contact_title": "聯絡\n我們",
+    "form_heading": "傳送訊息",
+    "form_name": "姓名",
+    "form_email": "電子郵件",
+    "form_service": "服務項目",
+    "form_budget": "預算（選填）",
+    "form_message": "聊聊你的專案",
+    "form_submit": "送出訊息",
+    "form_err_name": "請輸入你的姓名。",
+    "form_err_email": "請輸入有效的電子郵件。",
+    "form_err_service": "請選擇服務項目。",
+    "form_err_message": "請描述你的專案。",
+    "footer_top": "回到頂端",
+    "lightbox_close": "關閉",
+    "lightbox_prev": "上一個",
+    "lightbox_next": "下一個"
   }
 }
