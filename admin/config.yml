@@ -2,14 +2,21 @@ backend:
   name: git-gateway
   branch: main
 
+site_url: https://eino26.netlify.app
+display_url: https://eino26.netlify.app
+
 media_folder: uploads
 public_folder: /uploads
 
 locale: zh_Hant
 
+editor:
+  preview: false
+
 collections:
   - name: site
     label: 網站內容
+    description: 網站上所有文字都在這裡改。點開一個區塊、修改、按上方「儲存」再「發佈」，約 1 分鐘後上線。
     files:
       - name: site_content
         label: 全站文字
@@ -18,17 +25,21 @@ collections:
           - name: site
             label: 全站 / SEO
             widget: object
+            collapsed: true
+            hint: 網頁標題、搜尋與分享時顯示的文字。
             fields:
               - { name: logo, label: Logo 文字, widget: string }
-              - { name: title, label: 網頁標題（SEO）, widget: string }
-              - { name: description, label: 網站描述, widget: text }
-              - { name: og_title, label: 分享標題（OG）, widget: string }
+              - { name: title, label: 網頁標題（SEO）, widget: string, hint: "顯示在瀏覽器分頁與 Google 搜尋結果。" }
+              - { name: description, label: 網站描述, widget: text, hint: "Google 搜尋結果下方的說明文字，建議 80 字以內。" }
+              - { name: og_title, label: 分享標題（OG）, widget: string, hint: "分享到 LINE / FB / IG 時顯示的標題。" }
               - { name: og_description, label: 分享描述（OG）, widget: text }
               - { name: footer_copyright, label: 頁尾版權, widget: string }
 
           - name: hero
             label: 首屏區
             widget: object
+            collapsed: true
+            hint: 進站第一眼看到的大標題區。
             fields:
               - { name: tag, label: 上方標籤, widget: string }
               - { name: heading_line1, label: 主標第一行, widget: string }
@@ -39,6 +50,7 @@ collections:
           - name: about
             label: 關於區
             widget: object
+            collapsed: true
             fields:
               - { name: eyebrow, label: 小標籤, widget: string }
               - { name: heading, label: 標題（用換行斷行）, widget: text }
@@ -54,6 +66,8 @@ collections:
           - name: services
             label: 服務項目
             widget: list
+            collapsed: true
+            summary: "{{fields.number}} {{fields.title}}"
             fields:
               - { name: number, label: 編號（如 01）, widget: string }
               - { name: title, label: 服務名稱, widget: string }
@@ -63,20 +77,25 @@ collections:
           - name: contact
             label: 聯絡區
             widget: object
+            collapsed: true
             fields:
               - { name: heading, label: 標題（用換行斷行）, widget: text }
-              - { name: email, label: 電子郵件, widget: string }
+              - { name: email, label: 電子郵件, widget: string, hint: "顯示在網站上的聯絡信箱。" }
               - name: socials
                 label: 社群連結
                 widget: list
+                collapsed: true
+                summary: "{{fields.name}}（{{fields.handle}}）"
                 fields:
                   - { name: name, label: 平台名稱, widget: string }
                   - { name: handle, label: 顯示帳號, widget: string }
-                  - { name: url, label: 連結網址, widget: string }
+                  - { name: url, label: 連結網址, widget: string, hint: "完整網址，例如 https://instagram.com/你的帳號" }
 
           - name: ui
             label: 介面文字（按鈕 / 標籤 / 導覽）
             widget: object
+            collapsed: true
+            hint: 導覽列、按鈕、表單欄位等固定介面用字。
             fields:
               - { name: nav_about, label: 導覽 - 關於, widget: string }
               - { name: nav_contact, label: 導覽 - 聯絡, widget: string }
@@ -98,6 +117,10 @@ collections:
               - { name: form_budget, label: 表單 - 預算, widget: string }
               - { name: form_message, label: 表單 - 訊息, widget: string }
               - { name: form_submit, label: 表單 - 送出按鈕, widget: string }
+              - { name: form_sending, label: 表單 - 傳送中文字, widget: string }
+              - { name: form_sent, label: 表單 - 已送出按鈕文字, widget: string }
+              - { name: form_success, label: 表單 - 成功訊息, widget: string, hint: "送出成功後顯示在按鈕下方的訊息。" }
+              - { name: form_err_send, label: 錯誤訊息 - 送出失敗, widget: string }
               - { name: form_err_name, label: 錯誤訊息 - 姓名, widget: string }
               - { name: form_err_email, label: 錯誤訊息 - 電子郵件, widget: string }
               - { name: form_err_service, label: 錯誤訊息 - 服務項目, widget: string }
@@ -109,6 +132,7 @@ collections:
 
   - name: works
     label: 作品
+    description: 新增、排序、刪除作品。列表最上面的作品會同時當作首屏主圖。
     files:
       - name: works_list
         label: 所有作品
@@ -118,7 +142,9 @@ collections:
             label: 作品列表
             label_singular: 作品
             widget: list
-            summary: "{{fields.title}} - {{fields.category}}"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.title}}｜{{fields.subtitle}}"
             fields:
               - { name: title, label: 標題, widget: string }
               - { name: subtitle, label: 副標題, widget: string, hint: "例如：婚禮編輯 · 2024" }
@@ -130,7 +156,7 @@ collections:
                   - { label: 平面設計, value: graphic }
                   - { label: 編輯設計, value: editorial }
                   - { label: 產品, value: product }
-              - { name: image, label: 圖片, widget: image, required: false, hint: "建議寬度 1200px 以上，JPG 或 WebP。" }
+              - { name: image, label: 圖片, widget: image, required: false, hint: "建議寬度 1200px 以上，JPG 或 WebP。手機版會以滿版單欄顯示。" }
               - { name: description, label: 描述, widget: text, hint: "顯示在燈箱中的 1-2 句說明。" }
               - name: aspect
                 label: 長寬比（僅佔位用）
