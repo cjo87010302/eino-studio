@@ -98,6 +98,7 @@ nav{position:sticky;top:0;z-index:100;height:48px;display:flex;align-items:cente
 .cs{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-top:3px}
 .cb{position:absolute;top:9px;left:9px;font-size:8px;letter-spacing:.2em;text-transform:uppercase;background:rgba(250,250,248,.92);color:var(--b);padding:2px 7px;opacity:0;transform:translateY(-4px);transition:opacity .22s .04s,transform .22s .04s}
 .card:hover .cb{opacity:1;transform:translateY(0)}
+.cap{display:none}
 
 #about{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--r);border-bottom:1px solid var(--r)}
 .a-img{background:var(--l);border-right:1px solid var(--r);overflow:hidden}
@@ -153,6 +154,9 @@ nav{position:sticky;top:0;z-index:100;height:48px;display:flex;align-items:cente
 .btn{font-size:10px;letter-spacing:.25em;text-transform:uppercase;background:var(--b);color:var(--w);border:1px solid var(--b);padding:14px 40px;cursor:pointer;transition:all .25s;margin-top:4px}
 .btn:hover{background:transparent;color:var(--b)}
 .btn.sent{background:#2d6a4f;border-color:#2d6a4f;color:var(--w);pointer-events:none}
+.form-note{display:none;font-size:12px;line-height:1.7;margin-top:16px;color:#2d6a4f;opacity:0;transform:translateY(8px)}
+.form-note.show{display:block;animation:fadeUp .45s var(--ease-out-quart) forwards}
+.form-note.err{color:#c0392b}
 
 footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--r)}
 .fl2{font-family:var(--se);font-style:italic;font-size:1rem}
@@ -202,12 +206,25 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 #lia img{max-width:92vw;max-height:54vh}
 .lbd{font-size:14px;line-height:1.9}
 }
-@media(max-width:500px){
-#grid{columns:2}
+@media(max-width:640px){
 .sh,.c-r,.c-l,.a-txt{padding-left:16px;padding-right:16px}
-#grid{padding-left:16px;padding-right:16px}
 #filt{padding-left:16px}
+.gf{font-size:11px;padding:8px 18px 8px 0}
+#grid{columns:1;padding:16px 16px 48px}
+.card{margin-bottom:30px;background:none}
+.co,.cb{display:none}
+.cap{display:block;padding:10px 2px 0}
+.cap .ct{font-size:1.1rem}
+.cap .cs{font-size:10px;margin-top:4px;letter-spacing:.18em}
+.mob-menu a,.mob-menu button{font-size:12px;padding:18px 0}
 .fg-row{grid-template-columns:1fr;gap:0}
+.fg input,.fg textarea,.fg select{font-size:16px}
+.fg label{font-size:14px;top:9px}
+.fg input:focus+label,.fg input:not(:placeholder-shown)+label,.fg textarea:focus+label,.fg textarea:not(:placeholder-shown)+label{font-size:9px}
+.err-msg{font-size:11px}
+.btn{width:100%;padding:16px 0}
+.form-note{font-size:13px}
+.lbt{font-size:1.5rem}
 }
 </style>
 </head>
@@ -319,8 +336,9 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 </div>
 <div class="socs" id="socs"></div>
 </div>
-<form class="c-r reveal" name="contact" data-netlify="true" onsubmit="return false;">
+<form class="c-r reveal" name="contact" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return false;">
 <input type="hidden" name="form-name" value="contact">
+<p style="display:none"><label>請勿填寫<input name="bot-field" id="fbot" tabindex="-1" autocomplete="off"></label></p>
 <span class="fl" id="form-heading">傳送訊息</span>
 <div class="fg-row">
 <div class="fg" id="fg-name">
@@ -348,6 +366,7 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 <span class="err-msg" id="err-message">請描述你的專案。</span>
 </div>
 <button class="btn" id="sb" onclick="send()">送出訊息</button>
+<p class="form-note" id="form-note" role="status" aria-live="polite"></p>
 </form>
 </section>
 
@@ -361,6 +380,7 @@ footer{padding:22px 28px;display:flex;align-items:center;justify-content:space-b
 const catColor={photography:'#d4d0cc',product:'#c8ccd4',editorial:'#d8d4c8',graphic:'#d4d4d0'};
 let CAT={all:'全部',photography:'攝影',graphic:'平面設計',editorial:'編輯設計',product:'產品'};
 let SUBMIT_LABEL='送出訊息';
+let UI_MSG={sending:'傳送中…',sent:'已送出 ✓',success:'訊息已送出，我們會盡快回覆你。',fail:'發生錯誤，請稍後再試，或直接寄信給我們。'};
 
 function mediaEl(w,cls){
   if(w.image)return`<img class="${cls}" src="${w.image}" alt="${w.title}" loading="lazy">`;
@@ -387,6 +407,10 @@ function applyUI(u){
   t('opt-service',u.form_service);
   t('err-name',u.form_err_name); t('err-email',u.form_err_email); t('err-service',u.form_err_service); t('err-message',u.form_err_message);
   if(u.form_submit){SUBMIT_LABEL=u.form_submit; t('sb',u.form_submit);}
+  if(u.form_sending)UI_MSG.sending=u.form_sending;
+  if(u.form_sent)UI_MSG.sent=u.form_sent;
+  if(u.form_success)UI_MSG.success=u.form_success;
+  if(u.form_err_send)UI_MSG.fail=u.form_err_send;
   if(u.footer_top)t('footer-top','↑ '+u.footer_top);
   if(u.lightbox_close)t('lb-close','← '+u.lightbox_close);
   if(u.lightbox_prev)t('lb-prev','← '+u.lightbox_prev);
@@ -467,7 +491,7 @@ function build(){
     const d=document.createElement('div');
     d.className='card';d.setAttribute('role','listitem');d.setAttribute('tabindex','0');
     d.setAttribute('aria-label',`${w.title} - ${w.subtitle}`);
-    d.innerHTML=`${mediaEl(w,'ci')}<div class="cb">${CAT[w.category]||w.category}</div><div class="co"><div class="ci2"><div class="ct">${w.title}</div><div class="cs">${w.subtitle}</div></div></div>`;
+    d.innerHTML=`${mediaEl(w,'ci')}<div class="cb">${CAT[w.category]||w.category}</div><div class="co"><div class="ci2"><div class="ct">${w.title}</div><div class="cs">${w.subtitle}</div></div></div><div class="cap"><div class="ct">${w.title}</div><div class="cs">${w.subtitle}</div></div>`;
     d.onclick=()=>openLb(i);
     d.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(i);}};
     g.appendChild(d);
@@ -547,28 +571,36 @@ function send(){
   const bg=document.getElementById('fb').value.trim();
   const m=document.getElementById('fm').value.trim();
   const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let ok=true;
+  let ok=true,firstErr=null;
   ['fg-name','fg-email','fg-svc','fg-msg'].forEach(clearErr);
-  if(!n){showErr('fg-name');ok=false;}
-  if(!e||!re.test(e)){showErr('fg-email');ok=false;}
-  if(!s){showErr('fg-svc');ok=false;}
-  if(!m){showErr('fg-msg');ok=false;}
-  if(!ok)return;
+  const note=document.getElementById('form-note');
+  note.classList.remove('show','err');
+  if(!n){showErr('fg-name');ok=false;firstErr=firstErr||'fn';}
+  if(!e||!re.test(e)){showErr('fg-email');ok=false;firstErr=firstErr||'fe';}
+  if(!s){showErr('fg-svc');ok=false;firstErr=firstErr||'fs';}
+  if(!m){showErr('fg-msg');ok=false;firstErr=firstErr||'fm';}
+  if(!ok){
+    const el=document.getElementById(firstErr);
+    if(el){el.focus();el.scrollIntoView({behavior:'smooth',block:'center'});}
+    return;
+  }
   const btn=document.getElementById('sb');
-  btn.textContent='傳送中…';btn.disabled=true;
+  btn.textContent=UI_MSG.sending;btn.disabled=true;
   const enc=d=>Object.keys(d).map(k=>`${encodeURIComponent(k)}=${encodeURIComponent(d[k])}`).join('&');
   fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
-    body:enc({'form-name':'contact',name:n,email:e,service:s,budget:bg,message:m})
-  }).then(()=>{
-    btn.textContent='已送出 ✓';btn.classList.add('sent');
+    body:enc({'form-name':'contact',name:n,email:e,service:s,budget:bg,message:m,'bot-field':document.getElementById('fbot').value})
+  }).then(r=>{
+    if(!r.ok)throw new Error('send failed');
+    btn.textContent=UI_MSG.sent;btn.classList.add('sent');
+    note.textContent=UI_MSG.success;note.classList.remove('err');note.classList.add('show');
     setTimeout(()=>{
       btn.textContent=SUBMIT_LABEL;btn.classList.remove('sent');btn.disabled=false;
       ['fn','fe','fb','fm'].forEach(id=>document.getElementById(id).value='');
       document.getElementById('fs').selectedIndex=0;document.getElementById('fs').style.color='';
-    },3500);
+    },4000);
   }).catch(()=>{
-    btn.textContent='發生錯誤，請再試一次';btn.disabled=false;
-    setTimeout(()=>{btn.textContent=SUBMIT_LABEL;},3000);
+    btn.textContent=SUBMIT_LABEL;btn.disabled=false;
+    note.textContent=UI_MSG.fail;note.classList.add('show','err');
   });
 }
 ['fn','fe','fs','fm'].forEach(id=>{
